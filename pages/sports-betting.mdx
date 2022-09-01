@@ -1,9 +1,13 @@
----
-title: "How I Paid My Tuition Betting on Basketball... Without Knowing the Rules"
-date: "2022-08-31"
----
+import Layout from "../components/layout";
+import BettingCharts from "../components/betting-charts";
+import Script from "next/script";
+import makePlots from "../public/js/combined.js";
 
-<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+export const meta = {
+  title:
+    "How I Paid My Tuition Betting on Basketball... Without Knowing the Rules",
+  date: "2022-08-31",
+};
 
 It started, like the Bill of Rights would backwards, with the Tenth Amendment.
 
@@ -244,19 +248,20 @@ Alone, these symmetries are just interesting; combine them, and a symphony of op
 
 ![](/images/unbalanced.png)
 
-By abandoning even-money bets, we have created an extra $194 of expected value! The flip side: it's now more likely that we'll lose _both_ bets (25% -> 44%), so we're still in negative ERD territory.
-
-TODO - FIX THIS
+By abandoning even-money bets, we have created an extra $194 of expected value!
+The flip side: it's now more likely that we'll lose _both_ bets (25% -> 44%), so we're still in negative ERD territory; not out of the woods yet.
 
 ![](/images/unbalanced-risk-averse.png)
 
-We can remove this risk the same way we did before (by pairing off with friends) but this time half the bets are on favourites, and so are _probably going to win_. These bets get comparatively little extra firepower from being "risk-free bets", so _don't waste the promotion on them_. You or a teammate can take the favourite bet from a different sportsbook - perhaps one where you have a deposit match, or already used your promotion.
+Just as before, we can remove this risk by pairing off with friends, but this time half the bets are on favourites, and so are _probably going to win_.
+These bets get comparatively little extra firepower from being "risk-free bets", so _don't waste the promotion on them_.
+You or a teammate can take the favourite bet from a different sportsbook - perhaps one where you have a deposit match, or already used your promotion.
 
 Hungry for ERDs, and armed with this outline, there are a few dials you can turn: the number of paired-off bets you make, your risk-premium, and the odds you select for the underdog in both your initial bet and your token bet (these need not be the same). That's a lot to keep track of, so we'll have to abandon flowcharts in favour of a [Jupyter notebook](https://colab.research.google.com/github/montyevans/montyevans.github.io/blob/master/notebooks/betting.ipynb#scrollTo=2UJdTlovLtVV), which lets you tune each of these parameters to maximize your ERD harvest.
 
-| Example charts below, with explanations |
+<a name="charts_tag"></a>
 
-<div id="01041b6b-4b32-4e07-afa4-4de49fea5ddc" class="plotly-graph-div" style="height:700px; width:600px;"></div><script type="text/javascript" src="/js/chart1.min.js"> </script>
+<BettingCharts></BettingCharts>
 
 Solo, no risk-aversion (give payouts)
 Solo, normal risk-aversion (give payouts)
@@ -320,3 +325,12 @@ Several sites also offer referral bonuses that kick back ~$50 to both sides, mak
 Once you've road tripped across America and signed up everywhere possible, the ride is largely over, but it's worth keeping the various apps in your phone. Every few months some poor marketing manager with user-engagement metrics to meet spies my inactive account, and a notification pops up on my phone for a one-time $200 deposit match to lure me back. When a baby offers you candy...
 
 Always happy to field questions or correct errors: reach me by email / Twitter / carrier-pigeon - links below.
+
+<Script
+  src="https://cdn.plot.ly/plotly-2.14.0.min.js"
+  strategy="lazyOnload"
+  onLoad={() => {
+    makePlots();
+  }}
+/>
+export default ({children}) => <Layout meta={meta}>{children}</Layout>;
