@@ -58,3 +58,7 @@ a:hover {
   margin-right: auto;
   padding: 0 10px;
 }
+
+li {
+  margin: 8px 0px 8px 0px;
+}

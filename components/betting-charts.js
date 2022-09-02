@@ -22,15 +22,15 @@ export default function BettingCharts() {
       </div>
       <div></div>
       <div className={styles.colTitle}>
-        Risk Aversion = 1 <br />
+        Risk Premium = 1 <br />
         (Losses And Gains Treated Equally)
       </div>
       <div className={styles.colTitle}>
-        Risk Aversion = 2 <br />
+        Risk Premium = 2 <br />
         (Normal)
       </div>
       <div className={styles.colTitle}>
-        Risk Aversion = 100 <br />
+        Risk Premium = 100 <br />
         (Any Loss is Unacceptable)
       </div>
       <div className={styles.rowLabel}>
