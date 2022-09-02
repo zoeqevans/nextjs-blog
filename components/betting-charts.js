@@ -2,21 +2,21 @@ import styles from "./betting-charts.module.css";
 
 export default function BettingCharts() {
   const ids_promo_false = [
-    "291642c0-2099-4e98-9d68-551d8f8e98f2",
-    "4dcaef48-dd6c-42e2-8bea-ea42b0e72e1e",
-    "f019e916-1933-481e-bf89-828e60b65468",
+    "7a3b73f3-b5bf-42e4-af7c-acc7982f24b3",
+    "1a698ae3-2dec-457c-be55-75164c1529c9",
+    "09bd7951-aab4-4986-95ce-3ce6e1b7e2f4",
   ];
   const ids_promo_true = [
-    "e6405570-0d44-42dd-9322-0d0cf0b6cc1e",
-    "cd9b00dd-9777-4d94-a797-c0271c4b950c",
-    "b8644b67-740b-4f66-ab7f-8c5b990e9cbd",
+    "73e9de82-54c2-4829-8ea8-55bce709ebf2",
+    "1b83c731-97fb-4a64-8a76-89a270bd8061",
+    "a8dedc06-ac0e-46f5-8af0-7140295328d7",
   ];
 
   return (
     <div id="plotly-charts" className={styles.chartsContainer}>
       <div></div>
       <div className={styles.chartsTitle}>
-        <p>How to Bet When...</p>
+        <p>What Is My Profit When...</p>
 
         <div className={styles.divider} />
       </div>

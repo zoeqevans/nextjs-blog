@@ -11,7 +11,7 @@ export const meta = {
 
 It started, like the Bill of Rights would backwards, with the Tenth Amendment.
 
-Specifically, with the Supreme Court's 2018 determination that a 1992 federal law outlawing sports betting was unconstitutional.
+Specifically, with the [Supreme Court's 2018 decision](https://www.theatlantic.com/ideas/archive/2018/05/paspa-sanctuary-cities/560369/) that a 1992 federal law outlawing sports betting was unconstitutional.
 As the high-rolling heart of American gambling, Nevada was grandfathered in under the original law, so for twenty-six years, superbowls and World Series, if you wanted to bet on a game, you had to be in Nevada.
 Or in reality, as a sports-mad roommate patiently explained to me, you needed a telephone, and _a friend_ in Nevada.
 
@@ -123,6 +123,7 @@ If you lose, you receive a **_free bet token_** for the value of your bet (up to
 And yet the free-bet token is a fickle friend. Like bonus cash, though it sits next to a dollar-sign on the page, you can't withdraw it. The only thing you can do with a free-bet token is to bet with it.
 
 But free bet tokens do not behave like normal money. When you bet money and win, you get your stake back plus some profit. When a free bet token wins, **you do not get the stake back**.
+(Actually with some sportsbooks you do, but they are the exception to MGM's rule).
 
 To return to Mr. Fox and friends at MGM, if we bet on a coin-toss and lose, we receive a $1000 free-bet token. The evil genius of the promotion is that this looks basically fine, but is actually a **_much_** worse position than just having $1000.
 For one thing, we can't withdraw the token - we have to make a bet with it, and so right away have a 50% of walking away with nothing.
@@ -257,17 +258,39 @@ Just as before, we can remove this risk by pairing off with friends, but this ti
 These bets get comparatively little extra firepower from being "risk-free bets", so _don't waste the promotion on them_.
 You or a teammate can take the favourite bet from a different sportsbook - perhaps one where you have a deposit match, or already used your promotion.
 
-Hungry for ERDs, and armed with this outline, there are a few dials you can turn: the number of paired-off bets you make, your risk-premium, and the odds you select for the underdog in both your initial bet and your token bet (these need not be the same). That's a lot to keep track of, so we'll have to abandon flowcharts in favour of a [Jupyter notebook](https://colab.research.google.com/github/montyevans/montyevans.github.io/blob/master/notebooks/betting.ipynb#scrollTo=2UJdTlovLtVV), which lets you tune each of these parameters to maximize your ERD harvest.
+Hungry for ERDs, and armed with this outline, there are a few dials you can turn in pursuit of glory and riches:
+whether a winning bet token returns its stake, your risk-premium, and the odds you select for the underdog in both your initial bet and your token bet (these need not be the same).
 
-<a name="charts_tag"></a>
+That's a lot to keep track of, so we'll have to abandon flowcharts in favour of a [Jupyter notebook](https://colab.research.google.com/github/montyevans/montyevans.github.io/blob/master/notebooks/betting.ipynb#scrollTo=2UJdTlovLtVV), which lets you explore each of these parameters to maximize your ERD harvest.
+
+If you stick around here, I've shown some of the notebook's results below.
+These are visual representations of the profit landscape underlying the hedged, two-bet strategy we just developed.
+Each point in a chart represents a _pair of moneyline odds_ (you can mouse over and take a look!).
+As we go right, our initial bet gets riskier (i.e. has higher moneyline odds);
+likewise going up, for the follow-up bet-token-bet, if the first bet's a loser.
+
+These charts account for spreads, and in fact I've been particularly conservative in my calculations, using the worst spread I could find for a given moneyline.
+As such, these profits are almost certainly an _underestimate_.
 
 <BettingCharts></BettingCharts>
 
-Solo, no risk-aversion (give payouts)
-Solo, normal risk-aversion (give payouts)
-Solo, risk-aversion = 100 (i.e. zero chance of loss) (give payouts)
+So far we've been living in the first row, middle chart.
+The first thing to note is just how much more red (expected risk-adjusted loss) there is than blue (expected risk-adjusted profit). Ours is a dangerous world.
+This hopefully illustrates the benefit of pinning these numbers down;
+most bets you could make are not only non-optimal, they are actively bad!
 
-Team of 2, team of 4, with normal risk-aversion. Comment on how it minimized risk, and gives a better payoff per person.
+These plots range from -700 to +700 on each axis, which covers most head-to-head games you'll come across
+(at least before they start; the halftime odds of UNC blowing a 16-point lead are plus-many-thousands...).
+Note that even if you were weirdly risk non-averse (top left chart), you'd expect to lose money on two-thirds of your bets
+_even with this supposedly lucrative promotion_.
+
+A couple of things to note:
+
+- The "I Will Die If I Lose Money" charts on the right have smaller, but still _highly real_ blue zones. It will be harder to find a game there, and the payoff will be _slightly_ worse, but you _cannot lose money_.
+- The second row is _much_ bluer than the first. Promotions (most famously Barstool and Fanduel) where a winning Bet Token also returns its stake are _roughly twice as valuable_.
+- If you look at the same point across different charts, the importance of risk-adjustment becomes particularly obvious. The optimal odds from the top-left chart (260, 370) give a 34.1% risk-unadjusted profit, but one chart over, the very same point has a risk-adjusted profit of _1.5%_ - almost pointless. (Two charts over, the risk-adjusted profit is negative one-bajillion percent: there is a non-zero chance of losing some money, and so the risk-adjustment drops you to oblivion).
+
+Choose whichever chart best describes your situation, and set sail for your Island of Blue Money!
 
 ## How to Make $800 Risk-Free Right Now
 
@@ -292,6 +315,9 @@ At press time, in New York, Betrivers' $250 deposit match and Barstool's $1000 r
 
 You have a 25% shot at $1950 jackpot, and a 75% consolation prize of $479, for an expected value of $846.
 Feel free to dial the underdog odds down slightly for a better chance at a smaller jackpot.
+
+The astute reader will note that the optimal odds in this scenario would have been (+370, 100), the payoff where we landed (+270, -110) was only ~2% smaller, and the accounting is slightly simpler.
+Feel free to freestyle and scoop up those final crumbs.
 
 ## Common Pitfalls
 
@@ -326,11 +352,4 @@ Once you've road tripped across America and signed up everywhere possible, the r
 
 Always happy to field questions or correct errors: reach me by email / Twitter / carrier-pigeon - links below.
 
-<Script
-  src="https://cdn.plot.ly/plotly-2.14.0.min.js"
-  strategy="lazyOnload"
-  onLoad={() => {
-    makePlots();
-  }}
-/>
-export default ({children}) => <Layout meta={meta}>{children}</Layout>;
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

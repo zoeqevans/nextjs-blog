@@ -33,6 +33,10 @@ a:hover {
   text-decoration: underline;
 } */
 
+.textpoint > text {
+  text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white
+}
+
 img {
   max-width: 100%;
   display: block;
