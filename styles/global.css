@@ -34,7 +34,6 @@ a:hover {
 } */
 
 .textpoint > text {
-  /* text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white, 0.5px 0.5px 0 white */
   stroke: white;
   stroke-width: 1px;
 }
