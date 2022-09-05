@@ -22,7 +22,7 @@ export default function Layout({ children, meta }) {
         </Link>
 
         <div className={styles.subtitle}>
-          <em>Move fast and bake things</em>
+          <em>Move Fast and Bake Things</em>
         </div>
         <div className={styles.navDivider} />
 
