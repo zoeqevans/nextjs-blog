@@ -5,15 +5,33 @@ import makePlots from "../public/js/combined.js";
 
 export const meta = {
   title:
-    "How I Paid My Tuition Betting on Basketball... Without Knowing the Rules",
-  date: "2022-08-31",
+    "How I Paid My Rent Betting on Basketball... Without Knowing the Rules",
+  date: "2022-09-02",
 };
 
-# How I Paid My Tuition Betting on Basketball... Without Knowing the Rules
+<div style={{ textAlign: "center" }}>
+  # How I Paid My Rent Betting on Basketball... Without Knowing the Rules
+</div>
 
-_2022-08-31_
+<div style={{ textAlign: "center" }}>
+  <em>2022-09-02</em>
+</div>
 
-<div style={{ width: "30px", height: "2px", backgroundColor: "darkgray" }} />
+<em style={{ textAlign: "center", color: "gray" }}>
+  My Chief Legal Officer / Brother in Law School has told me to tell you that
+  this is not financial advice, I am not a Verified™ Expert™, terms may have
+  changed since I wrote this, you read and act at your own risk. I take no
+  responsibility for anything, anywhere, in perpituity, throughout the universe.
+</em>
+
+<div
+  style={{
+    width: "30px",
+    height: "2px",
+    backgroundColor: "darkgray",
+    margin: "50px auto 50px auto",
+  }}
+/>
 
 It started, like the Bill of Rights would backwards, with the Tenth Amendment.
 
@@ -39,7 +57,7 @@ First it was Pennsylvania and New Jersey, then Iowa, Indiana and a handful of ot
 California demurred. Florida basked in Miami sunshine. Texas, sweet land of liberty, dragged its legislative spurs and focused on its power grid.
 The people stayed home trading Gamestop, while the betting companies salivated over the mass affluent and their unreachable wallets.
 
-And then that November, she came. Like money and thunder she blazed into flame.
+And then that November she came; like money and thunder she blazed into flame.
 
 Fourth in population, third in GDP and first in per-capita GDP, New York legalized online sports betting, and triggered a once-in-forever frenzy for market share in the Empire State.
 
@@ -80,12 +98,12 @@ I would later discover, when evangelizing to friends, that this is _by far_ the 
 Researching corroborating accounts and figuring out how you're actually going to place the bets: another hour.
 But overcoming the long-established association of "Gambling" with "Bad, Sleazy, Fast-Track to Alcoholism and Losing My Life Savings" is _really difficult_.
 
-Nevertheless, safe in the knowledge that despite the bursar's emails, tuition isn't _really_ due until the end of the semester, I cobbled together the money and courage to make the deposit.
+Nevertheless, comforted by the knowledge that I hate whiskey and intend to marry rich, I cobbled together the money and courage to make the deposit.
 The bonus $3300 appeared immediately, and we were in business.
 
-![Include picture of bonus balance](/images/bonus-balance.png)
+![Picture of bonus balance](/images/bonus-balance.png)
 
-## A Partner in Crime
+## Location, Location, Location
 
 Caesars allows you to create an account from anywhere (even gamble-phobic North Carolina), but to use your promotional money you have to be physically present in New York State the moment you place your bet.
 They make you download a program called GeoLocation that needs to be running on your laptop, and happily reporting that you are in the state you claim, for the website to work. On the mobile app they use the built-in GPS instead.
@@ -117,7 +135,7 @@ In our case, we had a 100% match, up to a cap of $3000, and a 1x playthrough req
 Imagine we bet all our cash. In doing so, we meet our playthrough requirement and realize the $3000 bonus as cash. _Even if the bet loses_, we end up back where we started.
 If it wins, we scoop up the winnings, and _also_ realize the $3000 bonus cash (the playthrough requirement is entirely indifferent to whether your bets win or lose).
 
-In the simplest scenario (a 50/50, even-money bet where you either lose your money or double it), armed with this promotion your two outcomes are:
+In the simplest scenario (a 50/50, even-money bet where you either lose your money or double it), armed with this promotion the two outcomes are:
 
 1. The bet loses, and you neither make nor lose any money.
 2. The bet wins, and you make $3000 in _betting profit_ and $3000 in _bonus-now-real money_, for a total _$6000_ profit.
@@ -150,14 +168,14 @@ For one thing, we can't withdraw the token - we have to make a bet with it, and 
 
 But more deviously, even if our token wins, our payout is only **_$1000_** - we do not also recoup the stake, and are back where we started without making any money at all!
 
-To recap: there are three paths we could take through the promotion: _Win_, _Loss -> Win_, _Loss -> Loss_.
+There are three paths we could take through the promotion: _Win_, _Loss -> Win_, _Loss -> Loss_.
 Each path has a different pot of gold at the end of its rainbow, and a different chance of actually happening.
-Ultimately we'd like to answer the question _"What is this promotion actually worth?"_ - how best to accomplish that?
+Ultimately we'd like to answer the question _"What is this promotion actually worth?"_. How best to accomplish that?
 
-Maybe the most intuitive way to value this puddle of probabilities is to average the payouts at the end of each path, weighting by how likely we are to follow them.
-There's a 50% chance of walking down the _Win_ path, where $2000 is waiting for us. There's a 25% chance each of going down _Loss -> Win_ and _Loss -> Loss_, which offer $1000 and $0 respectively.
+An intuitive way to value this puddle of probabilities is to average the payouts at the end of each path, weighting by how likely we are to follow them.
+There's a 50% chance of walking down the _Win_ path, where $2000 awaits. There's a 25% chance each of going down _Loss -> Win_ and _Loss -> Loss_, which offer $1000 and $0 respectively.
 
-Combining this together, we have: (50% _ 2000) + (25% _ 1000) + (25% \* 0) = $1250
+Combining this together, we have: (50% x $2000) + (25% x $1000) + (25% x $0) = **$1250**
 
 This weighted-by-probability average is called the _Expected Value_ / _Expectation_ / _Expected Whatever_.
 It is the most useful, fundamental weapon in the statistics armoury.
@@ -166,11 +184,11 @@ They promptly forget it, and while the basic intuition lingers, insufficient sha
 
 This is one such moment.
 
-Keep track of the plethora of paths, payoffs and probabilities is potentially problematic: it can be helpful to draw things out.
+Keeping track of the plethora of paths, payoffs and probabilities is potentially problematic: it can be helpful to draw things out.
 
 ![](/images/diagram1.png)
 
-From a certain perspective, the MGM promo is a way of turning $1000 real dollars into $1250 expected dollars, i.e. it has an expected profit of only **$250**.
+From a certain perspective, the MGM promotion is a way of turning $1000 real dollars into $1250 expected dollars, i.e. it has an expected profit of only **$250**.
 
 But it gets worse.
 
@@ -284,7 +302,7 @@ If you've heard differently, let me know!
 
 Note that this strategy doesn't change your _expected_ (remember, weighted-by-probability average) profit, which remains $3000 each: it just sacrifices the chance of making $6000 each in order to guarantee nobody goes home empty handed.
 Deposit matches don't care about risk-adjustment (if you can't lose money, there's no risk to adjust for), so this strategy doesn't yield more ERDs there either.
-It's in situations which _do_ involve potential loss, like the MGM promo, that the team-up strategy truly shines.
+It's in situations which _do_ involve potential loss, like the MGM promotion, that the team-up strategy truly shines.
 
 The committed gambler can now return to Mr. Fox with Charlie by her side, and turn the other shoe firmly onto a new table.
 
@@ -369,7 +387,7 @@ To recap, the strategy we diagrammed was:
 5. Take the bet token you received from the promotional bet losing and place that on Underdog 2 at +180, while betting elsewhere on Favourite 2 at -220.
 
 This strategy is _completely captured_ by the single point (+180, +180), which happily falls in the blue zone and tells us we'll reap a 19.3% ERD profit.
-If we max out the MGM promo, that's 193 ERD. Not bad, but if we nudge over to (+140, +200) we can reach the heady heights of 263 ERD.
+If we max out the MGM promotion, that's 193 ERD. Not bad, but if we nudge over to (+140, +200) we can reach the heady heights of 263 ERD.
 
 These plots range from -700 to +700 on each axis, which covers most head-to-head games you'll come across
 (at least before they start; the halftime odds of UNC blowing a 16-point lead are plus-many-thousands...).

@@ -16,7 +16,7 @@ export default function Home({ allPostsData }) {
         <div className={utilStyles.smallTitle}>
           <Link href="/sports-betting">
             <a>
-              How I Paid My Tuition Betting on Basketball... Without Knowing the
+              How I Paid My Rent Betting on Basketball... Without Knowing the
               Rules
             </a>
           </Link>
