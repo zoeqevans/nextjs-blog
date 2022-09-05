@@ -13,7 +13,7 @@ export const meta = {
 
 _2022-08-31_
 
---
+<div style={{ width: "30px", height: "2px", backgroundColor: "darkgray" }} />
 
 It started, like the Bill of Rights would backwards, with the Tenth Amendment.
 
@@ -148,11 +148,29 @@ But free bet tokens do not behave like normal money. When you bet money and win,
 To return to Mr. Fox and friends, if we bet on a coin-toss and lose, we receive a $1000 free-bet token. The evil genius of the promotion is that this looks basically fine, but is actually a **_much_** worse position than just having $1000.
 For one thing, we can't withdraw the token - we have to make a bet with it, and so right away have a 50% of walking away with nothing.
 
-But more deviously, even if our token wins, our payout is only **_$1000_** - we do not also recoup the stake, and haven't made any money at all!
+But more deviously, even if our token wins, our payout is only **_$1000_** - we do not also recoup the stake, and are back where we started without making any money at all!
+
+To recap: there are three paths we could take through the promotion: _Win_, _Loss -> Win_, _Loss -> Loss_.
+Each path has a different pot of gold at the end of its rainbow, and a different chance of actually happening.
+Ultimately we'd like to answer the question _"What is this promotion actually worth?"_ - how best to accomplish that?
+
+Maybe the most intuitive way to value this puddle of probabilities is to average the payouts at the end of each path, weighting by how likely we are to follow them.
+There's a 50% chance of walking down the _Win_ path, where $2000 is waiting for us. There's a 25% chance each of going down _Loss -> Win_ and _Loss -> Loss_, which offer $1000 and $0 respectively.
+
+Combining this together, we have: (50% _ 2000) + (25% _ 1000) + (25% \* 0) = $1250
+
+This weighted-by-probability average is called the _Expected Value_ / _Expectation_ / _Expected Whatever_.
+It is the most useful, fundamental weapon in the statistics armoury.
+Unfortunately, most people meet it under a weird-sounding name halfway through a Friday afternoon maths class, compelled at pencil-point to combine random, contextless numbers.
+They promptly forget it, and while the basic intuition lingers, insufficient sharpening means it is rarely battle-ready when the moment strikes to deploy it.
+
+This is one such moment.
+
+Keep track of the plethora of paths, payoffs and probabilities is potentially problematic: it can be helpful to draw things out.
 
 ![](/images/diagram1.png)
 
-From a certain perspective, the MGM promo is a way of turning $1000 real dollars into $1250 expected dollars, i.e. it has an expected value of only **$250**.
+From a certain perspective, the MGM promo is a way of turning $1000 real dollars into $1250 expected dollars, i.e. it has an expected profit of only **$250**.
 
 But it gets worse.
 
@@ -221,14 +239,16 @@ I polled a handful of friends and found a similar answer. Let's look again at ou
 
 We are both going to feel silly if I keep writing, and you keep reading, phrases like "expected risk-averse dollars". Let's call them **ERDs**.
 
-You could be forgiven for thinking: "An expected risk-averse dollar sounds exceptionally made-up, and giving them an acronym seems like a poor way to hide that. I cannot hold it or exchange it for a Snickers bar. Somebody is telling me that MGM's promotion is worth -136 ERD, but I care about how many **dollars** it's worth, and this isn't that. ERDs are like Canadian dollars: probably nice-sounding in theory, but no good to me in Kansas."
+You could be forgiven for thinking: "An expected risk-averse dollar sounds exceptionally made-up, and giving them an acronym seems like a poor way to hide that.
+I cannot hold it or exchange it for a Snickers bar. Somebody is telling me that MGM's promotion is worth -136 ERD, but I care about how many **dollars** it's worth, and this isn't that.
+ERDs are like Canadian dollars: probably nice-sounding in theory, but no good to me in Kansas."
 
 Ultimately though, we don't want **dollars** either: we want the goods and services we can exchange them for. Whether a piece of paper or a bank balance, a dollar is an abstraction that allows a baker to pay rent without leaving a mountain of sourdough at her landlord's door.
 
 An ERD sounds suspicious, but it is just another abstraction. This time, instead of providing a common reference for valuing and exchanging different goods and services (the $ abstraction), ERDs provide a common reference for valuing and exchanging **chances** of **winning or losing** dollars.
 You may or may not care to do that! It is certainly a less _normal_ thing to want to do than valuing and exchanging goods and services, but it does crop up, and nowhere more purely than gambling.
 
-Normal life is conducted in a realm of certainty: my certain dollar for your certain apple. In the land of chance, there _are_ no certain dollars: you deal in ERDs, or you are wandering the world with a basket of wholewheat, wondering why you keep getting fleeced.
+Normal commerce is conducted in a realm of certainty: my certain dollar for your certain apple. In the land of chance, there _are_ no certain dollars: you deal in ERDs, or you are wandering the world with a wallet full of wholewheat, wondering why you keep getting fleeced.
 By revealing the MGM promotion to have negative value, ERDs keep us from taking a big risk for insufficient reward, and also suggests an alternative strategy.
 
 ## The Power of Friendship - Going Both Sides of The Line
@@ -241,7 +261,8 @@ We can, however, do better.
 If 25% seems uncomfortably high, you can guarantee a profit by **_betting against each other_**. One of you will win (as long as you pick a bet with no ties, and only two teams (no golf, racing, etc.)) and you split the profit.
 This is known as "going either side of the line", and is explicitly banned in the Terms and Conditions on every single betting website (on pain of having your account frozen).
 
-Vast numbers of bets are placed on these games every day: how does a site decide if two people are going either side of the line, and not just two fans of opposing teams? Every site enforces this slightly differently, but they probably use a mixture of the following clues.
+Vast numbers of bets are placed on these games every day: how does a site decide if two people are going either side of the line, and not just two fans of opposing teams?
+Every site enforces this slightly differently, but they probably use a mixture of the following clues.
 
 Bets placed...
 
@@ -261,7 +282,11 @@ The rough consensus is: **probably not**. In my short career, I've made ~30 eyeb
 I've never heard of anyone who just lost their deposit, but maybe that's because those people are having their head kicked in [under a Vegas parking lot](https://www.youtube.com/watch?v=NRDCXcdxdLY).
 If you've heard differently, let me know!
 
-The committed gambler can now return to Mr. Fox with Charlie by her side, and turn the other shoe firmly onto a new table:
+Note that this strategy doesn't change your _expected_ (remember, weighted-by-probability average) profit, which remains $3000 each: it just sacrifices the chance of making $6000 each in order to guarantee nobody goes home empty handed.
+Deposit matches don't care about risk-adjustment (if you can't lose money, there's no risk to adjust for), so this strategy doesn't yield more ERDs there either.
+It's in situations which _do_ involve potential loss, like the MGM promo, that the team-up strategy truly shines.
+
+The committed gambler can now return to Mr. Fox with Charlie by her side, and turn the other shoe firmly onto a new table.
 
 ![](/images/rfb-charlie.png)
 
@@ -298,11 +323,11 @@ Alone, these asymmetries are just interesting; combine them, and a symphony of o
 ![](/images/unbalanced.png)
 
 By abandoning even-money bets, we have created an extra $194 of expected value!
-The flip side: it's now more likely that we'll lose _both_ bets (25% -> 44%), so we're still in negative ERD territory: not out of the woods yet.
+The flip side: spreads are worse with higher odds, and it's now more likely that we'll lose _both_ bets (25% -> 44%), so we're still deep in negative ERD territory.
 
 ![](/images/unbalanced-risk-averse.png)
 
-Just as before, we can remove this risk by pairing off with friends, but this time half the bets are on favourites, and so are _probably going to win_.
+Just as before, though, we can remove this risk by pairing off with friends, but this time half the bets are on favourites, and so are _probably going to win_.
 These bets get comparatively little extra firepower from being "risk-free bets", so _don't waste the promotion on them_.
 You or a teammate can take the favourite bet from a different sportsbook - perhaps one where you have a deposit match, or already used your promotion.
 
@@ -317,28 +342,46 @@ Each point in a chart represents a _pair of moneyline odds_ (you can mouse over 
 As we go right, our initial bet gets riskier (i.e. has higher moneyline odds);
 likewise going up, for the follow-up bet-token-bet if the first bet's a loser.
 
+<span style={{ color: "red" }}>Points in red</span> represent pairs of odds that
+produce negative ERDs (and are thus a bad idea);
+<span style={{ color: "blue" }}>points in blue</span> represent pairs that produce
+positive ERDs. I've also switched from representing absolute profit (_"You will make
+250 ERDs"_) to percentage profit, because different promotions have different limits,
+you might be nervous to max out a promotion, etc.
+
+If the giant red-blue squares look
+imposing, fear not: we'll walk through an example.
+
 These charts account for spreads: in fact I've been particularly conservative in my calculations, using the worst spread I could find for a given moneyline.
 As such, these profits are almost certainly an _underestimate_.
 
 <BettingCharts></BettingCharts>
 
-So far we've been living in the first row, middle chart.
-The first thing to note is just how much more red (expected risk-adjusted loss) there is than blue (expected risk-adjusted profit). Ours is a dangerous world.
-This hopefully illustrates the benefit of pinning these numbers down;
-most bets you could make are not only non-optimal, they are actively bad!
+So far we've been living in the first row, middle chart: a normal risk aversion, with a bet token that doesn't return its stake if it wins.
+The 2:1 bet we just examined would have moneyline odds of (-200, +200), though with spreads it's more like (-220, +180): we receive _less_ money than we should, given the win probability.
+
+To recap, the strategy we diagrammed was:
+
+1. Find a game with odds (-220, +180) between Favourite 1 and Underdog 1
+2. Use your promotion to bet on Underdog 1 at +180, while betting elsewhere on Favourite 1 at -220.
+3. If Underdog 1 wins, celebrate!
+4. If it loses, find another game with odds (-220, +180) between Favourite 2 and Underdog 2.
+5. Take the bet token you received from the promotional bet losing and place that on Underdog 2 at +180, while betting elsewhere on Favourite 2 at -220.
+
+This strategy is _completely captured_ by the single point (+180, +180), which happily falls in the blue zone and tells us we'll reap a 19.3% ERD profit.
+If we max out the MGM promo, that's 193 ERD. Not bad, but if we nudge over to (+140, +200) we can reach the heady heights of 263 ERD.
 
 These plots range from -700 to +700 on each axis, which covers most head-to-head games you'll come across
 (at least before they start; the halftime odds of UNC blowing a 16-point lead are plus-many-thousands...).
+You won't always find a game with the exact optimum odds, but the charts will guide you as close to the mountain peak as the day's schedule allows.
 
-Note that even if you were weirdly risk non-averse (top left chart), you'd expect to lose money on two-thirds of your bets
-_even with this supposedly lucrative promotion_.
+Some broader observations:
 
-A couple of things to note:
-
+- Look how much more red (expected risk-adjusted loss) there is than blue (expected risk-adjusted profit). Ours is a dangerous world: even if you were weirdly risk non-averse (top left chart), you'd expect to lose money on two-thirds of your bets _even with this supposedly lucrative promotion_. This hopefully illustrates the benefit of pinning these numbers down; most bets you could make are not only non-optimal, they are actively bad!
 - The _"I Will Die If I Lose Money"_ charts on the right have smaller, but still real, blue zones. It will be harder to find a game there, and the payoff will be slightly worse, but you **cannot lose money**.
 - The second row is _much_ bluer than the first. Promotions (most famously Barstool and FanDuel) where a winning Bet Token also returns its stake are **roughly twice as valuable**.
-- If you look at the same point across different charts, the importance of risk-adjustment becomes obvious. The optimal odds from the top-left chart (260, 370) give a 34.1% risk-unadjusted profit, but one chart over, the very same point has a risk-adjusted profit of _1.5%_: almost pointless.
-  - Two charts over, the risk-adjusted profit is negative one-bajillion percent: there is a non-zero chance of losing some money, and so the risk-adjustment drops you to oblivion.
+- The importance of risk-adjustment is particularly clear when you look at the same point across charts. The optimal odds from the top left chart (+260, +370) give a 34.1% risk-unadjusted profit, but one chart over (moving the Risk Premium from 1 to 2), the very same point has a risk-adjusted profit of 1.5%: almost pointless.
+  - Two charts over, the risk-adjusted profit is negative one-bajillion percent: where there's a non-zero chance of losing any money, the huge risk-adjustment drops you to oblivion.
 
 Choose whichever chart best describes your situation, and set sail for the Isle of Blue Money!
 
@@ -364,7 +407,7 @@ At press time, in most states, BetRivers' $250 deposit match and Barstool's $100
   - If Barstool wins...
     - You still have $320 at BetRivers, and $1909 at Barstool, for a total of $2229: also a $479 profit.
 
-You have a 25% shot at $1950 jackpot, and a 75% consolation prize of $479, for an **expected value of $846**.
+You have a 25% shot at $1950 jackpot, and a 75% consolation prize of $479, for an **expected profit of $846**.
 Feel free to dial the underdog odds down slightly for a better chance at a smaller jackpot.
 
 The astute reader will note that the optimal odds in this scenario would have been (+370, 100), the payoff where we landed, (+270, -110), was only ~2% smaller, and the accounting is easier.
@@ -383,7 +426,10 @@ Feel free to freestyle and scoop up those final crumbs.
 
 ![](/images/mccandless.jpg)
 
-_(Chris McCandless, after hitchhiking across the country to acquire every sign-up bonus in America)_
+<em style={{ textAlign: "center", color: "gray" }}>
+  (Chris McCandless, after hitchhiking across the country to acquire every
+  sign-up bonus in America)
+</em>
 
 Once you understand the rules, the jargon, and have chosen your strategy, the last and highest hurdle is to work up the energy and head a-hunting. Promotions rotate, state regulations change, new companies acquire licenses. "Best Sports Betting Promos" returns **pages** of lists. [Some sites](https://www.betonline.ag/) are unbelievable, both in the sense of offering massive sign-up bonuses, and in requiring all deposits to be made in crypto to their Albanian headquarters: these I leave to braver prospectors.
 
