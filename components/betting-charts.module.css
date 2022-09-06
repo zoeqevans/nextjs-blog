@@ -18,7 +18,7 @@
   width: 200px;
   height: 2px;
   background-color: gray;
-  margin: 0px auto 30px auto;
+  margin: 0px auto 120px auto;
 
 }
 
@@ -108,8 +108,8 @@
 @media only screen and (max-width: 600px) {
   .chartsContainer {
     transform: translateX(-140px) scale(0.4);
-    margin-top: -20rem;
-    margin-bottom: -18rem;
+    margin-top: -18rem;
+    margin-bottom: -16rem;
     font-size: 1.6rem;
   }
 }
@@ -117,7 +117,7 @@
 @media only screen and (max-width: 480px) {
   .chartsContainer {
     transform: translateX(-120px) scale(0.3);
-    margin-top: -22rem;
+    margin-top: -18rem;
     margin-bottom: -20rem;
     font-size: 1.7rem;
 
@@ -135,12 +135,12 @@
 
 @media only screen and (max-width: 420px) {
   .chartsContainer {
-    transform: translateX(-100px) scale(0.25);
-    margin-top: -23rem;
-    margin-bottom: -22rem;
+    transform: translateX(-120px) scale(0.25);
+    margin-top: -20rem;
+    margin-bottom: -20rem;
     font-size: 2rem;
 
-    grid-template-columns: 10rem 1fr 1fr 1fr;
+    grid-template-columns: 14rem 1fr 1fr 1fr;
     grid-template-rows: 10rem 6rem 1fr 1fr;
   }
 
