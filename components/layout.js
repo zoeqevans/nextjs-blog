@@ -5,9 +5,10 @@ import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 
-export const siteTitle = "Monty Evans";
+export const siteTitle = `Zoe Evans`;
 
 export default function Layout({ children, meta }) {
+  console.log(children);
   return (
     <div>
       <Head>
@@ -18,7 +19,7 @@ export default function Layout({ children, meta }) {
       <header className={styles.header}>
         <Link href="/" className={styles.link}>
           <a>
-            <div className={styles.myName}>Monty Evans</div>
+            <div className={styles.myName}>Zoe Evans</div>
           </a>
         </Link>
 
@@ -40,7 +41,7 @@ export default function Layout({ children, meta }) {
           </Link>
 
           <span className={styles.span}>
-            <Link href="https://www.twitter.com/montymevans">
+            <Link href="https://www.twitter.com/zoeqevans">
               <a>
                 <Image
                   src="/images/twitter.svg"
@@ -51,7 +52,7 @@ export default function Layout({ children, meta }) {
             </Link>
           </span>
           <span className={styles.span}>
-            <Link href="https://github.com/montyevans">
+            <Link href="https://github.com/zoeqevans">
               <a>
                 <Image
                   src="/images/github.svg"

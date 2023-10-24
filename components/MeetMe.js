@@ -1,12 +1,13 @@
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { firstName } from "./layout";
 
 const MeetMe = () => {
   return (
     <div>
       <Image
         src="/images/profile.jpg"
-        alt="Monty Evans avatar"
+        alt={`${firstName} Evans avatar`}
         width={150}
         height={150}
         className={styles.img}
