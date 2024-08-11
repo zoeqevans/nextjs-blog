@@ -5,21 +5,33 @@ import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 
-export const siteTitle = `Zoe Evans`;
+import { useState, useEffect } from "react";
+
+export const useName = () => {
+  const [firstName, setFirstName] = useState("Monty");
+
+  useEffect(() => {
+    if (window.location.href.includes("zoeqevans.com")) {
+      setFirstName("Zoe");
+    }
+  }, []);
+
+  return `${firstName} Evans`;
+};
 
 export default function Layout({ children, meta }) {
-  console.log(children);
+  const name = useName();
   return (
     <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <title>{siteTitle}</title>
+        <title>{name}</title>
       </Head>
 
       <header className={styles.header}>
         <Link href="/" className={styles.link}>
           <a>
-            <div className={styles.myName}>Zoe Evans</div>
+            <div className={styles.myName}>{name}</div>
           </a>
         </Link>
 
