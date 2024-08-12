@@ -12,12 +12,14 @@ export const usePersonalDetails = () => {
     firstName: "Monty",
     email: "montyevans",
     twitter: "montymevans",
+    monarch: "king",
   };
 
   const zoeDetails = {
     firstName: "Zoe",
     email: "zoeqevans",
     twitter: "zoeqevans",
+    monarch: "queen",
   };
 
   const [personalDetails, setPersonalDetails] = useState(montyDetails);
