@@ -7,31 +7,44 @@ import Link from "next/link";
 
 import { useState, useEffect } from "react";
 
-export const useName = () => {
-  const [firstName, setFirstName] = useState("Monty");
+export const usePersonalDetails = () => {
+  const montyDetails = {
+    firstName: "Monty",
+    email: "montyevans",
+    twitter: "montymevans",
+  };
+
+  const zoeDetails = {
+    firstName: "Zoe",
+    email: "zoeqevans",
+    twitter: "zoeqevans",
+  };
+
+  const [personalDetails, setPersonalDetails] = useState(montyDetails);
 
   useEffect(() => {
     if (window.location.href.includes("zoeqevans.com")) {
-      setFirstName("Zoe");
+      setPersonalDetails(zoeDetails);
     }
   }, []);
 
-  return `${firstName} Evans`;
+  return personalDetails;
 };
 
 export default function Layout({ children, meta }) {
-  const name = useName();
+  const { firstName } = usePersonalDetails();
+  const fullName = `${firstName} Evans`;
   return (
     <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <title>{name}</title>
+        <title>{fullName}</title>
       </Head>
 
       <header className={styles.header}>
         <Link href="/" className={styles.link}>
           <a>
-            <div className={styles.myName}>{name}</div>
+            <div className={styles.myName}>{fullName}</div>
           </a>
         </Link>
 
