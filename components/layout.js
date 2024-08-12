@@ -12,6 +12,7 @@ export const usePersonalDetails = () => {
     firstName: "Monty",
     email: "montyevans",
     twitter: "montymevans",
+    github: "montyevans",
     monarch: "king",
   };
 
@@ -19,6 +20,7 @@ export const usePersonalDetails = () => {
     firstName: "Zoe",
     email: "zoeqevans",
     twitter: "zoeqevans",
+    github: "zoeqevans",
     monarch: "queen",
   };
 
@@ -34,8 +36,12 @@ export const usePersonalDetails = () => {
 };
 
 export default function Layout({ children, meta }) {
-  const { firstName } = usePersonalDetails();
-  const fullName = `${firstName} Evans`;
+  const personalDetails = usePersonalDetails();
+  const fullName = `${personalDetails.firstName} Evans`;
+  const twitterUrl = `https://twitter.com/${personalDetails.twitter}`;
+  const githubUrl = `https://github.com/${personalDetails.github}`;
+
+  console.log(githubUrl);
   return (
     <div>
       <Head>
@@ -68,7 +74,7 @@ export default function Layout({ children, meta }) {
           </Link>
 
           <span className={styles.span}>
-            <Link href="https://www.twitter.com/zoeqevans">
+            <Link href={twitterUrl}>
               <a>
                 <Image
                   src="/images/twitter.svg"
@@ -79,7 +85,7 @@ export default function Layout({ children, meta }) {
             </Link>
           </span>
           <span className={styles.span}>
-            <Link href="https://github.com/zoeqevans">
+            <Link href={githubUrl}>
               <a>
                 <Image
                   src="/images/github.svg"
