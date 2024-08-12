@@ -12,11 +12,11 @@ export default function ContactLine() {
       <Link href={twitterUrl}>
         <a className={styles.link}>Twitter</a>
       </Link>{" "}
-      and I use email - `{personalDetails.email} at gmail dot com`. I'd love to
+      and I use email - `{personalDetails?.email} at gmail dot com`. I'd love to
       hear from you. <br /> <br /> . <br /> <br /> . <br /> <br /> . <br />{" "}
       <br />
       Like, I <em>actually</em> would. See above about guiltily doing more
-      reading than writing. I am the {personalDetails.monarch} of having
+      reading than writing. I am the {personalDetails?.monarch} of having
       thoughts and questions and being intimidated to put them to an internet
       stranger. You don't have to be. <br /> <br /> . <br /> <br /> . <br />{" "}
       <br /> . <br /> <br />
