@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 export const usePersonalDetails = () => {
   const montyDetails = {
-    firstName: "Monty",
+    fullName: "Monty Evans",
     email: "montyevans",
     twitter: "montymevans",
     github: "montyevans",
@@ -17,18 +17,20 @@ export const usePersonalDetails = () => {
   };
 
   const zoeDetails = {
-    firstName: "Zoe",
+    fullName: "Zoe Evans",
     email: "zoeqevans",
     twitter: "zoeqevans",
     github: "zoeqevans",
     monarch: "queen",
   };
 
-  const [personalDetails, setPersonalDetails] = useState(montyDetails);
+  const [personalDetails, setPersonalDetails] = useState();
 
   useEffect(() => {
     if (window.location.href.includes("zoeqevans.com")) {
       setPersonalDetails(zoeDetails);
+    } else {
+      setPersonalDetails(montyDetails);
     }
   }, []);
 
@@ -37,11 +39,10 @@ export const usePersonalDetails = () => {
 
 export default function Layout({ children, meta }) {
   const personalDetails = usePersonalDetails();
-  const fullName = `${personalDetails.firstName} Evans`;
-  const twitterUrl = `https://twitter.com/${personalDetails.twitter}`;
-  const githubUrl = `https://github.com/${personalDetails.github}`;
+  const fullName = personalDetails?.fullName;
+  const twitterUrl = `https://twitter.com/${personalDetails?.twitter}`;
+  const githubUrl = `https://github.com/${personalDetails?.github}`;
 
-  console.log(githubUrl);
   return (
     <div>
       <Head>
