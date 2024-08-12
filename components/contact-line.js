@@ -4,7 +4,7 @@ import styles from "./layout.module.css";
 
 export default function ContactLine() {
   const personalDetails = usePersonalDetails();
-  const twitterUrl = `https://twitter.com/${personalDetails.twitter}`;
+  const twitterUrl = `https://twitter.com/${personalDetails?.twitter}`;
 
   return (
     <p>
