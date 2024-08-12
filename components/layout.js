@@ -24,7 +24,7 @@ export const usePersonalDetails = () => {
     monarch: "queen",
   };
 
-  const [personalDetails, setPersonalDetails] = useState();
+  const [personalDetails, setPersonalDetails] = useState({ fullName: "|" });
 
   useEffect(() => {
     if (window.location.href.includes("zoeqevans.com")) {
