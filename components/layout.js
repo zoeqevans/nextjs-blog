@@ -68,12 +68,6 @@ export default function Layout({ children, meta }) {
               <span className={styles.span}>Posts</span>
             </a>
           </Link>
-          <Link href="/about">
-            <a>
-              <span className={styles.span}>About</span>
-            </a>
-          </Link>
-
           <span className={styles.span}>
             <Link href={twitterUrl}>
               <a>
