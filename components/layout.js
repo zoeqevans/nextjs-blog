@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Script from "next/script";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
@@ -40,8 +39,6 @@ export const usePersonalDetails = () => {
 export default function Layout({ children, meta }) {
   const personalDetails = usePersonalDetails();
   const fullName = personalDetails?.fullName;
-  const twitterUrl = `https://twitter.com/${personalDetails?.twitter}`;
-  const githubUrl = `https://github.com/${personalDetails?.github}`;
 
   return (
     <div>
@@ -59,37 +56,6 @@ export default function Layout({ children, meta }) {
 
         <div className={styles.subtitle}>
           <em>Move Fast and Bake Things</em>
-        </div>
-        <div className={styles.navDivider} />
-
-        <div className={styles.navBar}>
-          <Link href="/" className={styles.link}>
-            <a>
-              <span className={styles.span}>Posts</span>
-            </a>
-          </Link>
-          <span className={styles.span}>
-            <Link href={twitterUrl}>
-              <a>
-                <Image
-                  src="/images/twitter.svg"
-                  height="40px"
-                  width="40px"
-                ></Image>
-              </a>
-            </Link>
-          </span>
-          <span className={styles.span}>
-            <Link href={githubUrl}>
-              <a>
-                <Image
-                  src="/images/github.svg"
-                  height="40px"
-                  width="40px"
-                ></Image>
-              </a>
-            </Link>
-          </span>
         </div>
         <div className={styles.divider} />
       </header>
